@@ -22,7 +22,7 @@ describe('Orange HRM Tests', () => {
     menuPage.myInfoAccess()
     myInfoPage.fillNameDetails(chance.first(), chance.last(), chance.last())
     myInfoPage.fillEmployeeDetails(chance.integer({ min: 100000, max: 999999 }), chance.integer({ min: 0, max: 99999 }), chance.character({ pool: 'abcde' }) + chance.integer({ min: 10000000, max: 99999999 }), chance.exp_year() + '-' + chance.natural({ min: 1, max: 28 }) + '-' + chance.natural({ min: 1, max: 12 }))
-    myInfoPage.fillPersonalDetails('Brazilian', 'Single', chance.year({min: 1925, max: 2007}) + '-' + chance.natural({ min: 1, max: 28 }) + '-' + chance.natural({ min: 1, max: 12 }), chance.integer({min: 0, max: 1}))
+    myInfoPage.fillPersonalDetails(chance.integer({min: 1, max: 193}), chance.integer({min: 1, max: 3}), chance.year({min: 1925, max: 2007}) + '-' + chance.natural({ min: 1, max: 28 }) + '-' + chance.natural({ min: 1, max: 12 }), chance.integer({min: 0, max: 1}))
     myInfoPage.savePersonalData()
     //cy.get(selectorsList.myInfoGenericField).eq(9).clear().type('TestFieldTeste')
 

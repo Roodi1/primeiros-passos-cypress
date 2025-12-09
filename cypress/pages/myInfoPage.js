@@ -15,6 +15,7 @@ class MyInfoPage{
             myInfoPicklistField: "[tabindex='0']",
             myInfoPicklistDataField: ".oxd-select-dropdown",
             myInfoGenderField: ".oxd-radio-wrapper",
+            myInfoPicklistDataFieldNumber: "[role='option']",
         }
         return selectors
     }
@@ -34,8 +35,8 @@ class MyInfoPage{
     }
 
     fillPersonalDetails(nationality, maritalStatus, dateOfBirth, gender) {
-        cy.get(this.selectorsList().myInfoPicklistField).eq(0).click().get(this.selectorsList().myInfoPicklistDataField).contains(nationality).click()
-        cy.get(this.selectorsList().myInfoPicklistField).eq(1).click().get(this.selectorsList().myInfoPicklistDataField).contains(maritalStatus).click()
+        cy.get(this.selectorsList().myInfoPicklistField).eq(0).click().get(this.selectorsList().myInfoPicklistDataFieldNumber).eq(nationality).click()
+        cy.get(this.selectorsList().myInfoPicklistField).eq(1).click().get(this.selectorsList().myInfoPicklistDataFieldNumber).eq(maritalStatus).click()
         cy.get(this.selectorsList().myInfoDateField).eq(1).clear().type(dateOfBirth).get(this.selectorsList().myInfoCloseDateField).click()
         cy.get(this.selectorsList().myInfoGenderField).eq(gender).click()
     }
